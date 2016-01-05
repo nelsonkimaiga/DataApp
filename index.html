@@ -55,12 +55,62 @@
     <p id="contact-error" class="text-danger lead"></p>
     <form class="contact-form" id="contact-form" role="form" onsubmit="return sendMessage(this)">
         <input class="form-control" name="name" type="text" placeholder="Your name. eg., Joe" required>
-        <input class="form-control" name="email" type="email" placeholder="Your email. eg., joe@acme.com" required>
+        <input class="form-control" name="secondname" type="text" placeholder="Your second name" required>
         <textarea class="form-control" name="message" placeholder="Your message for us" rows="5" required></textarea>
         <select class="form-control" name="gender">
         	<option value="male">Male</option>
         	<option value="female">female</option>
         </select>
+
+      <select class="form-control" name="county">
+            <option value="mombasa">Mombasa County</option>
+            <option value="kwale">Kwale County</option>
+            <option value="">Kilifi County</option>
+            <option value="">Tana River</option>
+            <option value="">Lamu</option>
+            <option value="">Taita Taveta</option>
+            <option value="">Garrisa</option>
+            <option value="">Wajir</option>
+            <option value="">Mandera</option>
+            <option value="">Marsabit</option>
+            <option value="">Isiolo</option>
+            <option value="">Meru</option>
+            <option value="">Tharaka-Nithi</option>
+            <option value="">Embu</option>
+            <option value="">Kitui</option>
+            <option value="">Machakos</option>
+            <option value="">Makueni</option>
+            <option value="">Nyandarua</option>
+            <option value="">Nyeri</option>
+            <option value="">Kirinyaga</option>
+            <option value="">Muranga</option>
+            <option value="">Kiambu</option>
+            <option value="">Turkana</option>
+            <option value="">West Pokot</option>
+            <option value="">Samburu</option>
+            <option value="">Trans-Nzoia</option>
+            <option value="">Uasin-Gishu</option>
+            <option value="">Elgeyo-Marakwet</option>
+            <option value="">Nandi</option>
+            <option value="">Baringo</option>
+            <option value="">Lakipia</option>
+            <option value="">Nakuru</option>
+            <option value="">Narok</option>
+            <option value="">Kajiado</option>
+            <option value="">Kericho</option>
+            <option value="">Bomet</option>
+            <option value="">Kakamega</option>
+            <option value="">Vihiga</option>
+            <option value="">Bungoma</option>
+            <option value="">Busia</option>
+            <option value="">Siaya</option>
+            <option value="">Kisumu</option>
+            <option value="">Homabay</option>
+            <option value="">Migori</option>
+            <option value="">Kisii</option>
+            <option value="">Nyamira</option>
+            <option value="">Nairobi County</option>
+          </select>
         <br />
         <button class="btn btn-success pull-right" id="send-button" type="submit" >Send Message</button>
     </form>
@@ -88,9 +138,10 @@
         var myFirebaseRef = new Firebase("https://healthdata.firebaseio.com/messages");
         myFirebaseRef.push({
           name: formObj.name.value,
-          email: formObj.email.value,
+          secondname: formObj.secondname.value,
           message: formObj.message.value,
-          gender: formObj.gender.value
+          gender: formObj.gender.value,
+          county: formObj.county.value
         }, onMessageComplete);
         sendBtn.disabled = true;
         return false;
